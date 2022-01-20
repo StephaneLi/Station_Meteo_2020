@@ -1,0 +1,27 @@
+@media screen and (min-width: 200px) and (max-width: 680px) {
+    .navbar-brand {
+      display:block!important;
+      text-align: center!important;
+      width:100%!important;
+    }
+    nav{
+        justify-content: center;
+    }
+    #search{
+        margin:0!important;
+    }
+    h1{
+        font-size:2rem;
+    }
+    h1 span{
+        font-size:1rem!important;
+    }
+
+    #data td{
+        width:50%!important;
+    }
+
+    footer p {
+        text-align:center;
+    }
+  }

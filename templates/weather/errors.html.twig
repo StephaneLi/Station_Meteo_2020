@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Erreur
+{% endblock %}
+
+{% block body %}    
+    <section class="container" id="main-container" style="min-height:300px;">
+        <div class="d-flex flex-wrap bd-highligh" >
+            <div class="p-2 flex-fill bd-highlight"  style="min-width:300px">
+                <h1 class="text-info">Erreur(s)</h1>
+                <ul class="list-group">
+                    {% for error in errors %}
+                        <li class="list-group-item list-group-item-danger">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>    
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Metéo {{ data.ville }}
+{% endblock %}
+
+{% block body %}    
+    <section class="container" id="main-container" style="min-height:300px;">
+        <div class="d-flex flex-wrap bd-highligh" >
+            <div class="p-2 flex-fill bd-highlight position-relative col-6" style="min-width:300px; height:330px" >
+                <div class="position-absolute sticky-top" style="z-index:1">
+                    <h1 class="text-info">{{ data.ville |capitalize  }} <span style="font-size:1.3rem;display:block;">( {{ data.description|capitalize }} )</span></h1>
+                    <p  style="font-size:0.8rem;color:#bcbdbe">{{ data.date }} à {{ data.heure }}</p>
+                </div>
+                <img class="position-absolute sticky-bottom mt-5" style="left:50%;transform:translateX(-50%); width:250px;heigth:250px;z-index:0" src= "css/img/{{ data.icon }}.png" />
+                <div class="position-absolute" style="bottom:0">
+                    <div>
+                        <img alt="Levé du soleil" height="40px" width="40px" src="css/img/012.png" />
+                        {{ data.leve }}
+                    </div>
+                    <div>
+                        <img alt="Couché du soleil" height="40px" width="40px" src="css/img/01n.png" />
+                        {{ data.couche }}
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 flex-fill bd-highlight"  style="min-width:300px">
+                <table id="data" class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td class="col-3">Température</td>
+                            <td class="col-6">{{ data.temperature }} °C</td>
+                        </tr>
+                        <tr>
+                            <td class="col-3">Ressentie</td>
+                            <td class="col-6">{{ data.ressentie }} °C</td>
+                        </tr>
+                         <tr>
+                            <td class="col-3">Pression</td>
+                            <td class="col-6">{{ data.pression }} mbar</td>
+                        </tr>
+                        <tr>
+                            <td  class="col-3">Humidité</td>                            
+                            <td  class="col-6">{{ data.humidite }} %</td>                           
+                        </tr>
+                        <tr>
+                            <td  class="col-3">Vent</td>
+                            <td  class="col-6">{{ data.vent }} km/h</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>    
+{% endblock %}

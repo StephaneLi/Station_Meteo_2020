@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Meteo{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/style.css">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body style="background-color:#404852">    
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand text-uppercase font-weight-light mr-4 ml-4" style="font-size:1.5rem;color:#bcbdbe" href="{{ path('index') }}">Strategia Météo</a>
+            <div id="search" class="ml-4">            
+                {{ form_start(formMeteo) }}
+                <div class="d-flex bd-highlight">
+                    <div class="align-self-center p-2 bd-highlight">
+                        {{ form_widget(formMeteo.ville, {'attr':{ 'placeholder' : "Saisir votre ville"}, 'label' : false }) }}  
+                    </div>
+                    <div class="align-self-center p-2 bd-highlight">
+                        {{ form_widget(formMeteo.submit, {'label': "Rechercher"}) }}  
+                    </div>  
+                </div>           
+                {{ form_end(formMeteo) }}                
+            </div>
+        </nav>
+        <main class="pt-4 pb-4" style="min-height:450px; background:white;">
+            {% block body %}{% endblock %}
+        </main>
+        <footer class="text-light p-4">
+            <p class="font-weight-light-bolder">Stéphane LIEUMONT</p>
+            <ul class="list-group font-weight-lighter mb-4" style="font-size:0.8rem;list-style:none;">
+                <li><span class="font-weight-bolder">Telephone :</span> 06.37.35.35.79</li>
+                <li><span class="font-weight-bolder">Email :</span> stephane-19@hotmail.fr</li>
+                <li><span class="font-weight-bolder">Adresse :</span> 16 Ter route Magnes - 31470 FONTENILLES</li>
+                <li><span class="font-weight-bolder">Web :</span> <a href="https://portfolio.sli-3d.fr/">portfolio.sli-3d.fr</a></li>
+            </ul>
+        </footer>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
